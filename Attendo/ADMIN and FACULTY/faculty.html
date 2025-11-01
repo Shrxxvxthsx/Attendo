@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Dashboard - Attendance Management System</title>
+  <link rel="stylesheet" href="admin-dashboard.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-left">
+      <img src="Icons/back.png" alt="back-arrow" class="back-arrow" onclick="window.history.back()">
+      <div>
+        <div class="brand-title">Faculty Dashboard</div>
+        <div class="brand-subtitle">Attendance Management System</div>
+      </div>
+    </div>
+    <div class="navbar-actions">
+      <button class="export-btn">
+        <img src="Icons/download.png" alt="Export" class="icon-btn">
+        Export Reports
+      </button>
+    </div>
+  </header>
+  <main>
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-label">Total Students</div>
+        <div class="stat-value green">1250</div>
+        <img src="Icons/student.png" alt="Students" class="stat-icon">
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Today's Attendance</div>
+        <div class="stat-value red">892</div>
+        <img src="Icons/calendar-empty-page-outline.png" alt="Attendance" class="stat-icon">
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Attendance Rate</div>
+        <div class="stat-value green">78.5%</div>
+        <img src="Icons/bar-graph.png" alt="Rate" class="stat-icon">
+      </div>
+    </div>
+    <div class="tabs">
+      <button class="tab active" data-tab="overview">Overview</button>
+      <button class="tab" data-tab="students">Students</button>
+      <button class="tab" data-tab="courses">Courses</button>
+      <button class="tab" data-tab="sessions">Sessions</button>
+    </div>
+    <div id="tab-content">
+      <div class="tab-section" id="overview-section" style="display:block;">
+        <!-- Overview content -->
+        <div class="dashboard-content">
+          <div class="class-sessions card">
+            <strong>Today's Class Sessions</strong>
+            <div class="subtitle">Current and upcoming classes</div>
+            <div class="session-list">
+              <div class="session-item">
+                <div>
+                  <div class="session-title">CS101 - Introduction to Programming</div>
+                  <div class="session-details">Prof. Sarah Smith · 09:00 AM · Room A101</div>
+                  <div class="session-attendance">Attendance: 45/50</div>
+                </div>
+                <span class="status-badge completed">Completed</span>
+              </div>
+              <div class="session-item">
+                <div>
+                  <div class="session-title">MATH201 - Linear Algebra</div>
+                  <div class="session-details">Prof. Michael Johnson · 11:00 AM · Room C302</div>
+                  <div class="session-attendance">Attendance: 38/42</div>
+                </div>
+                <span class="status-badge inprogress">In Progress</span>
+              </div>
+              <div class="session-item">
+                <div>
+                  <div class="session-title">CS201 - Data Structures</div>
+                  <div class="session-details">Prof. Sarah Smith · 02:00 PM · Room B201</div>
+                  <div class="session-attendance">Attendance: 0/48</div>
+                </div>
+                <span class="status-badge upcoming">Upcoming</span>
+              </div>
+            </div>
+          </div>
+          <div class="quick-actions card">
+            <strong>Quick Actions</strong>
+            <div class="subtitle">Common administrative tasks</div>
+            <div class="actions-grid">
+              <button class="action-btn"><img src="Icons/qr-code.png" class="action-icon"> Generate QR</button>
+              <button class="action-btn"><img src="Icons/calendar-empty-page-outline.png" class="action-icon"> Schedule Class</button>
+              <button class="action-btn"><img src="Icons/download.png" class="action-icon"> Export Data</button>
+              <button class="action-btn"><img src="Icons/bar-graph.png" class="action-icon"> View Analytics</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-section" id="students-section" style="display:none;">
+        
+        
+        <!-- Student Management content -->
+        <div class="student-management-card">
+          <div class="header-row">
+            <div>
+              <div class="title">Student Management</div>
+              <div class="subtitle">Manage student records and attendance</div>
+            </div>
+            <div class="search-add-row">
+              <input type="text" class="search-input" placeholder="Search students...">
+              <button class="add-btn">+ Add Student</button>
+            </div>
+          </div>
+          <div class="student-list">
+            <div class="student-item">
+              <div class="student-info">
+                <div class="student-name">Alice Brown</div>
+                <div class="student-details">STU001 · alice.brown@student.edu</div>
+                <div class="student-major">Computer Science</div>
+              </div>
+              <div class="student-actions">
+                <span class="attendance-badge">Attendance: 85%</span>
+                <span class="status-badge active">Active</span>
+                <button class="icon-btn" title="View"><img src="Icons/visible.png" class="action-icon" width="10" height="10"></button>
+                <button class="icon-btn" title="Edit"><span>&#9998;</span></button>
+                <button class="icon-btn" title="Delete"><span>&#128465;</span></button>
+              </div>
+            </div>
+            <div class="student-item">
+              <div class="student-info">
+                <div class="student-name">Bob Wilson</div>
+                <div class="student-details">STU002 · bob.wilson@student.edu</div>
+                <div class="student-major">Computer Science</div>
+              </div>
+              <div class="student-actions">
+                <span class="attendance-badge">Attendance: 72%</span>
+                <span class="status-badge active">Active</span>
+                <button class="icon-btn" title="View"><span>&#128065;</span></button>
+                <button class="icon-btn" title="Edit"><span>&#9998;</span></button>
+                <button class="icon-btn" title="Delete"><span>&#128465;</span></button>
+              </div>
+            </div>
+            <div class="student-item">
+              <div class="student-info">
+                <div class="student-name">Carol Davis</div>
+                <div class="student-details">STU003 · carol.davis@student.edu</div>
+                <div class="student-major">Mathematics</div>
+              </div>
+              <div class="student-actions">
+                <span class="attendance-badge">Attendance: 91%</span>
+                <span class="status-badge active">Active</span>
+                <button class="icon-btn" title="View"><span>&#128065;</span></button>
+                <button class="icon-btn" title="Edit"><span>&#9998;</span></button>
+                <button class="icon-btn" title="Delete"><span>&#128465;</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-section" id="courses-section" style="display:none;">
+        <!-- Course Management content -->
+        <div class="course-management-card">
+          <div class="header-row">
+            <div>
+              <div class="title">Course Management</div>
+              <div class="subtitle">Manage courses and enrollments</div>
+            </div>
+            <button class="add-btn">+ Add Course</button>
+          </div>
+          <div class="course-list">
+            <div class="course-item">
+              <div class="course-info">
+                <div class="course-title">CS101 - Introduction to Programming</div>
+                <div class="course-details">Prof. Sarah Smith · Computer Science</div>
+                <div class="course-enrolled">Enrolled Students: 50</div>
+              </div>
+              <div class="course-actions">
+                <span class="status-badge active">Active</span>
+                <button class="icon-btn" title="View"><span>&#128065;</span></button>
+                <button class="icon-btn" title="Edit"><span>&#9998;</span></button>
+                <button class="icon-btn" title="Delete"><span>&#128465;</span></button>
+              </div>
+            </div>
+            <div class="course-item">
+              <div class="course-info">
+                <div class="course-title">CS201 - Data Structures and Algorithms</div>
+                <div class="course-details">Prof. Sarah Smith · Computer Science</div>
+                <div class="course-enrolled">Enrolled Students: 48</div>
+              </div>
+              <div class="course-actions">
+                <span class="status-badge active">Active</span>
+                <button class="icon-btn" title="View"><span>&#128065;</span></button>
+                <button class="icon-btn" title="Edit"><span>&#9998;</span></button>
+                <button class="icon-btn" title="Delete"><span>&#128465;</span></button>
+              </div>
+            </div>
+            <div class="course-item">
+              <div class="course-info">
+                <div class="course-title">MATH101 - Calculus I</div>
+                <div class="course-details">Prof. Michael Johnson · Mathematics</div>
+                <div class="course-enrolled">Enrolled Students: 55</div>
+              </div>
+              <div class="course-actions">
+                <span class="status-badge active">Active</span>
+                <button class="icon-btn" title="View"><span>&#128065;</span></button>
+                <button class="icon-btn" title="Edit"><span>&#9998;</span></button>
+                <button class="icon-btn" title="Delete"><span>&#128465;</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-section" id="sessions-section" style="display:none;">
+        <!-- Class Sessions content -->
+        <div class="class-sessions-card">
+          <div class="header-row">
+            <div>
+              <div class="title">Class Sessions</div>
+              <div class="subtitle">Manage class schedules and attendance tracking</div>
+            </div>
+            <button class="add-btn">+ Schedule Session</button>
+          </div>
+          <div class="session-list">
+            <div class="session-item">
+              <div class="session-info">
+                <div class="session-title">CS101 - Introduction to Programming</div>
+                <div class="session-details">Prof. Sarah Smith</div>
+                <div class="session-details">09:00 AM · Room A101</div>
+                <div class="session-attendance">Attendance: 45/50</div>
+              </div>
+              <div class="session-actions">
+                <span class="status-badge completed">Completed</span>
+                <button class="icon-btn" title="QR"><span>&#128273;</span></button>
+                <button class="icon-btn" title="View"><span>&#128065;</span></button>
+                <button class="icon-btn" title="Edit"><span>&#9998;</span></button>
+                <button class="icon-btn" title="Delete"><span>&#128465;</span></button>
+              </div>
+            </div>
+            <div class="session-item">
+              <div class="session-info">
+                <div class="session-title">MATH201 - Linear Algebra</div>
+                <div class="session-details">Prof. Michael Johnson</div>
+                <div class="session-details">11:00 AM · Room C302</div>
+                <div class="session-attendance">Attendance: 38/42</div>
+              </div>
+              <div class="session-actions">
+                <span class="status-badge inprogress">In Progress</span>
+                <button class="icon-btn" title="QR"><span>&#128273;</span></button>
+                <button class="icon-btn" title="View"><span>&#128065;</span></button>
+                <button class="icon-btn" title="Edit"><span>&#9998;</span></button>
+                <button class="icon-btn" title="Delete"><span>&#128465;</span></button>
+              </div>
+            </div>
+            <div class="session-item">
+              <div class="session-info">
+                <div class="session-title">CS201 - Data Structures</div>
+                <div class="session-details">Prof. Sarah Smith</div>
+                <div class="session-details">02:00 PM · Room B201</div>
+                <div class="session-attendance">Attendance: 0/48</div>
+              </div>
+              <div class="session-actions">
+                <span class="status-badge upcoming">Upcoming</span>
+                <button class="icon-btn" title="QR"><span>&#128273;</span></button>
+                <button class="icon-btn" title="View"><span>&#128065;</span></button>
+                <button class="icon-btn" title="Edit"><span>&#9998;</span></button>
+                <button class="icon-btn" title="Delete"><span>&#128465;</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script>
+    // Tab switching logic
+    const tabs = document.querySelectorAll('.tab');
+    const sections = {
+      overview: document.getElementById('overview-section'),
+      students: document.getElementById('students-section'),
+      courses: document.getElementById('courses-section'),
+      sessions: document.getElementById('sessions-section')
+    };
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        Object.values(sections).forEach(sec => sec.style.display = 'none');
+        const key = tab.getAttribute('data-tab');
+        if (sections[key]) sections[key].style.display = 'block';
+      });
+    });
+  </script>
+  </main>
+</body>
+</html>

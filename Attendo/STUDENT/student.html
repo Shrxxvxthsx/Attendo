@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal - Mark Your Attendance</title>
+  <link rel="stylesheet" href="student.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="navbar-left">
+      <img src="Icons/qr-code.png" alt="Logo" class="logo">
+      <div>
+        <div class="brand-title">Student Portal</div>
+        <div class="brand-subtitle">Mark Your Attendance</div>
+      </div>
+    </div>
+    <button class="history-btn">View History</button>
+  </header>
+  <main>
+    <div class="container">
+      <div class="card info-card">
+        <strong>Quick Attendance Check-in</strong>
+        <p>Choose your preferred method to mark attendance for today's classes</p>
+      </div>
+      <div class="card student-info-card">
+        <strong>Student Information</strong>
+        <div class="input-group">
+          <label>Student ID</label>
+          <input type="text" placeholder="Enter your student ID (e.g., STU001)">
+        </div>
+        <div class="location">
+          <img src="Icons/location.png" alt="Location" class="location-icon">
+          <span id="geo-coords"></span>
+        </div>
+      </div>
+      <div class="card method-card">
+        <div class="method-options">
+          <div class="method-option selected">
+            <img src="Icons/qr-code.png" alt="QR Code" class="method-icon">
+            <div>QR Code</div>
+            <span class="method-desc">Scan class QR code</span>
+          </div>
+          <div class="method-option">
+            <img src="Icons/password.png" alt="Manual Entry" class="method-icon">
+            <div>Manual Entry</div>
+            <span class="method-desc">Enter session code</span>
+          </div>
+        </div>
+      </div>
+      <div class="card attendance-card">
+        <strong>Mark Attendance</strong>
+        <div class="selected-method">
+          Selected method: <span class="badge">QR Code</span>
+        </div>
+        <div class="input-group">
+          <label>Session Code or QR Data</label>
+          <input type="text" placeholder="Enter session code or scan QR">
+        </div>
+        <div class="attendance-actions">
+          <button class="mark-btn">Mark Attendance</button>
+          <button class="scan-btn">Scan QR</button>
+        </div>
+      </div>
+      <div class="card classes-card">
+        <strong>Today's Classes</strong>
+        <div class="class-list">
+          <div class="class-item">
+            <div>
+              <div class="class-title">CS101 - Introduction to Programming</div>
+              <div class="class-details">9:00 AM - 10:30 AM · Room A101</div>
+            </div>
+            <span class="status-badge">Present</span>
+          </div>
+          <div class="class-item">
+            <div>
+              <div class="class-title">CS201 - Data Structures</div>
+              <div class="class-details">11:00 AM - 12:30 PM · Room B201</div>
+            </div>
+            <span class="status-badge">Present</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script>
+window.onload = function() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var lat = position.coords.latitude.toFixed(4);
+      var lon = position.coords.longitude.toFixed(4);
+      var geoSpan = document.getElementById('geo-coords');
+      if (geoSpan) {
+        geoSpan.textContent = 'Location detected: ' + lat + ', ' + lon;
+      }
+    }, function(error) {
+      var geoSpan = document.getElementById('geo-coords');
+      if (geoSpan) {
+        geoSpan.textContent = 'Location not available';
+      }
+    });
+  }
+};
+</script>
+</body>
+</html>
